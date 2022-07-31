@@ -1,4 +1,5 @@
 package com.jdbc;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -12,10 +13,10 @@ public class Driver {
 
 
     public static void main(String[] args) {
-        try(
+        try (
                 Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
                 Statement statement = connection.createStatement();
-        ){
+        ) {
             //1. Connect the database - using [ Connection ] function
 
             //Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/courses", "root", "");
@@ -24,8 +25,7 @@ public class Driver {
 
             //3. Execute SQL query - using [ ResultSet ] function + SQL [ SELECT ] command
             System.out.println("================= Select all from course table ================= ");
-           ResultSet queryResult = statement.executeQuery("SELECT * FROM course");
-
+            ResultSet queryResult = statement.executeQuery("SELECT * FROM course");
 
 
             //Insert SQL query
@@ -39,20 +39,18 @@ public class Driver {
             System.out.println("Data inserted!!!");
 
 
-
-
             //4. Process the result - using while loop
-            while (queryResult.next()){
+            while (queryResult.next()) {
                 System.out.println(queryResult.getString("id") + ", "
                         + queryResult.getString("courseTitle") + ", "
                         + queryResult.getString("instructorName") + ","
                         + queryResult.getString("credit") + ","
                         + queryResult.getString("cost") + ", "
-                        + queryResult.getString("description") );
+                        + queryResult.getString("description"));
             }
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Something went wrong!!!");
             e.printStackTrace();
         }
