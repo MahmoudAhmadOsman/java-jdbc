@@ -10,21 +10,21 @@ public class Driver {
         try {
             //1. Connect the database - using [ Connection ] function
 
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/courses", "root", "");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/courses", "root", "");
 
             //2. Create a statement - using [ Statement ] function
-            Statement myStmt = myConn.createStatement();
+            Statement statement = connection.createStatement();
 
             //3. Execute SQL query - using [ ResultSet ] function + SQL [ SELECT ] command
-            ResultSet myRs = myStmt.executeQuery("SELECT * FROM courses");
+            ResultSet queryResult = statement.executeQuery("SELECT * FROM courses");
 
             //4. Process the result - using while loop
-            while (myRs.next()){
-                System.out.println(myRs.getString("id") + ", "
-                        + myRs.getString("title") + ", "
-                        + myRs.getString("instructor") + ","
-                        + myRs.getString("credit") + ", "
-                        + myRs.getString("description") );
+            while (queryResult.next()){
+                System.out.println(queryResult.getString("id") + ", "
+                        + queryResult.getString("title") + ", "
+                        + queryResult.getString("instructor") + ","
+                        + queryResult.getString("credit") + ", "
+                        + queryResult.getString("description") );
             }
 
 
