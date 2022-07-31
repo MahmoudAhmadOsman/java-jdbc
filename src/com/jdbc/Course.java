@@ -8,13 +8,13 @@ import java.sql.Statement;
 //import java.sql.*; // import everything
 public class Course {
     static final String DB_URL = "jdbc:mysql://localhost:3306/courses";
-    static final String USER = "root";
-    static final String PASS = "";
+    static final String USER_NAME = "root";
+    static final String PASSWORD = "";
 
 
     public static void main(String[] args) {
         try (
-                Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
+                Connection connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
                 Statement statement = connection.createStatement();
         ) {
             //1. Connect the database - using [ Connection ] function
