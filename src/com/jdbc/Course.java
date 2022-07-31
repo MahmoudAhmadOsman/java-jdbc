@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 //import java.sql.*; // import everything
-public class Driver {
+public class Course {
     static final String DB_URL = "jdbc:mysql://localhost:3306/courses";
     static final String USER = "root";
     static final String PASS = "";
